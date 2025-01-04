@@ -1,0 +1,31 @@
+<div class="slideshow">
+  <div class="slides-container">
+      <div
+          *ngFor="let slide of slides; let i = index"
+          class="slide"
+          [class.active]="currentIndex === i"
+      >
+          <img [src]="slide.imageUrl" [alt]="slide.title" />
+          <div class="overlay" *ngIf="slide.title || slide.description">
+              <h2>{{ slide.title }}</h2>
+              <p>{{ slide.description }}</p>
+          </div>
+      </div>
+  </div>
+
+  <button mat-icon-button class="nav-btn prev" (click)="prevSlide()">
+      <mat-icon>chevron_left</mat-icon>
+  </button>
+  <button mat-icon-button class="nav-btn next" (click)="nextSlide()">
+      <mat-icon>chevron_right</mat-icon>
+  </button>
+
+  <div class="indicators">
+      <button
+          *ngFor="let slide of slides; let i = index"
+          class="indicator"
+          [class.active]="currentIndex === i"
+          (click)="goToSlide(i)"
+      ></button>
+  </div>
+</div>
