@@ -1,0 +1,9 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}
+.slide-content {
+  overflow: hidden;
+  height: 100svh;
+}
